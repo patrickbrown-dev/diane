@@ -1,0 +1,2 @@
+%{"feeder": {:hex, :feeder, "1.4.6"},
+  "sweet_xml": {:hex, :sweet_xml, "0.2.1"}}

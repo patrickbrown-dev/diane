@@ -5,8 +5,8 @@ defmodule Diane do
   @spec parse(String) :: {:ok, map} | {:error, String}
   def parse(source) do
     case Diane.Util.determine_format(source) do
-      :atom         -> Diane.Atom.parse(source)
-      :rss          -> Diane.RSS.parse(source)
+      {:ok, :atom}  -> Diane.Atom.parse(source)
+      {:ok, :rss}   -> Diane.RSS.parse(source)
       {:error, msg} -> {:error, msg}
     end
   end

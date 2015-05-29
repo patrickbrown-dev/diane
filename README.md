@@ -1,4 +1,4 @@
-Diane
+Diane [![Build Status](https://travis-ci.org/ptrckbrwn/diane.svg)](https://travis-ci.org/ptrckbrwn/diane)
 =====
 
-** TODO: Add description **
+RSS/Atom parser for Elixir.

@@ -1,2 +1,3 @@
 %{"feeder": {:hex, :feeder, "1.4.6"},
-  "sweet_xml": {:hex, :sweet_xml, "0.2.1"}}
+  "sweet_xml": {:hex, :sweet_xml, "0.2.1"},
+  "timex": {:hex, :timex, "0.13.4"}}

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><title>xkcd.com</title><link href="http://xkcd.com/" rel="alternate"></link><id>http://xkcd.com/</id><updated>2015-05-27T00:00:00Z</updated>
+  <entry><title>Keyboard Mash</title><link href="http://xkcd.com/1530/" rel="alternate"></link><updated>2015-05-27T00:00:00Z</updated><id>http://xkcd.com/1530/</id><summary type="html">&lt;img src="http://imgs.xkcd.com/comics/keyboard_mash.png" title="WHY DON'T YOU COME HANG OUT INSIDE MY HOUSE. WE CAN COOK BREAD AND CHAT ABOUT OUR INTERNAL SKELETONS." alt="WHY DON'T YOU COME HANG OUT INSIDE MY HOUSE. WE CAN COOK BREAD AND CHAT ABOUT OUR INTERNAL SKELETONS." /&gt;</summary></entry>
+
+  <entry><title>Bracket</title><link href="http://xkcd.com/1529/" rel="alternate"></link><updated>2015-05-25T00:00:00Z</updated><id>http://xkcd.com/1529/</id><summary type="html">&lt;img src="http://imgs.xkcd.com/comics/bracket.png" title="I'm staring at the &amp;quot;doctor&amp;quot; section, and I can't help but feel like I've forgotten someone." alt="I'm staring at the &amp;quot;doctor&amp;quot; section, and I can't help but feel like I've forgotten someone." /&gt;</summary></entry>
+
+</feed>

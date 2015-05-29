@@ -1,5 +1,3 @@
 defmodule Diane.RSS do
-  def parse(source) do
-    {:error, "Not implemented yet"}
-  end
+  def parse(source), do: {:error, "Not implemented yet"}
 end

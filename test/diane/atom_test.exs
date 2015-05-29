@@ -7,9 +7,10 @@ defmodule Diane.AtomTest do
   test "it can properly parse an atom file" do
     {:ok, source} = File.read(@atom_file)
 
-    assert parse(source) == %{
+    assert parse(source) == {:ok, %{
       title: 'xkcd.com',
       link: 'http://xkcd.com/',
+      id: 'http://xkcd.com/',
       updated: '2015-05-27T00:00:00Z',
       entries: [
         %{ id:      'http://xkcd.com/1530/',
@@ -25,6 +26,6 @@ defmodule Diane.AtomTest do
            summary: "<img src=\"http://imgs.xkcd.com/comics/bracket.png\" title=\"I'm staring at the &quot;doctor&quot; section, and I can't help but feel like I've forgotten someone.\" alt=\"I'm staring at the &quot;doctor&quot; section, and I can't help but feel like I've forgotten someone.\" />",
            content: "" }
       ]
-    }
+    }}
   end
 end

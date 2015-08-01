@@ -89,10 +89,20 @@ defmodule Diane.RSSTest do
     end
   end
 
+  test "parse equivalent catches error and puts it into error tuple" do
+    atom_file = "test/fixtures/atom.xml" |> File.read!
+    assert parse(atom_file) == {:error, "Parse error, no channels found"}
+  end
+
   test "it raises an error when file isn't a valid xml file" do
     not_xml = "this is definitely not xml"
     assert_raise CaseClauseError, "no case clause matching: {:fatal, {:expected_element_start_tag, {:file, :file_name_unknown}, {:line, 1}, {:col, 2}}}", fn ->
       parse! not_xml
     end
+  end
+
+  test "parse equivalent catches error and puts it into error tuple" do
+    not_xml = "this is definitely not xml"
+    assert parse(not_xml) == {:error, "Unknown error occurred"}
   end
 end

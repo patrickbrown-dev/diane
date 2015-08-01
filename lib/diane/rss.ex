@@ -7,7 +7,6 @@ defmodule Diane.RSS do
       {:ok, parse!(source)}
     rescue
       e in RuntimeError -> {:error, e.message}
-      e in CaseClauseError -> {:error, e.message}
       _ -> {:error, "Unknown error occurred"}
     end
   end

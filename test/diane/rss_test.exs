@@ -5,7 +5,7 @@ defmodule Diane.RSSTest do
   @rss_file "test/fixtures/rss.xml"
 
   def parsed_source do
-    @rss_file |> File.read! |> parse
+    @rss_file |> File.read! |> parse!
   end
 
   test "it contains all channels in feed" do
@@ -80,5 +80,19 @@ defmodule Diane.RSSTest do
     |> Map.fetch!(:items)
     |> List.first
     assert item.description == "<img src=\"http://imgs.xkcd.com/comics/keyboard_mash.png\" title=\"WHY DON'T YOU COME HANG OUT INSIDE MY HOUSE. WE CAN COOK BREAD AND CHAT ABOUT OUR INTERNAL SKELETONS.\" alt=\"WHY DON'T YOU COME HANG OUT INSIDE MY HOUSE. WE CAN COOK BREAD AND CHAT ABOUT OUR INTERNAL SKELETONS.\" />"
+  end
+
+  test "it raises an error when no channels are found" do
+    atom_file = "test/fixtures/atom.xml" |> File.read!
+    assert_raise RuntimeError, "Parse error, no channels found", fn ->
+      parse! atom_file
+    end
+  end
+
+  test "it raises an error when file isn't a valid xml file" do
+    not_xml = "this is definitely not xml"
+    assert_raise CaseClauseError, "no case clause matching: {:fatal, {:expected_element_start_tag, {:file, :file_name_unknown}, {:line, 1}, {:col, 2}}}", fn ->
+      parse! not_xml
+    end
   end
 end

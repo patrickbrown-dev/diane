@@ -27,9 +27,6 @@ defmodule Diane.Mixfile do
   #
   # Type `mix help deps` for more examples and options
   defp deps do
-    [{:sweet_xml, "~> 0.2.1"},
-     {:timex, "~> 0.13.4"},
-     {:feeder_ex, "~> 0.0.2"},
-     {:apex, "~> 0.3.3"}]
+    [{:sweet_xml, "~> 0.2.1"}]
   end
 end

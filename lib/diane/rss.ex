@@ -20,7 +20,7 @@ defmodule Diane.RSS do
         rss -> rss
       end
     catch
-      :exit, reason -> raise reason
+      :exit, reason -> raise "expected element start tag"
     end
   end
 

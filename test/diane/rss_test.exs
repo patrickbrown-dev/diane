@@ -96,7 +96,7 @@ defmodule Diane.RSSTest do
 
   test "it raises an error when file isn't a valid xml file" do
     not_xml = "this is definitely not xml"
-    assert_raise CaseClauseError, "no case clause matching: {:fatal, {:expected_element_start_tag, {:file, :file_name_unknown}, {:line, 1}, {:col, 2}}}", fn ->
+    assert_raise RuntimeError, fn ->
       parse! not_xml
     end
   end

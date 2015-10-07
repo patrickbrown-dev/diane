@@ -3,9 +3,13 @@ Diane [![Build Status](https://travis-ci.org/ptrckbrwn/diane.svg)](https://travi
 
 RSS/Atom parser for Elixir.
 
-:warning: Very early stages of development. :warning:
+:warning: Atom feed parsing is *not* functional at this time. :warning:
 
-## Documentation
+## Installation
+
+Add `{:diane, "~> 0.0.1"}` to your `mix.exs` deps.
+
+## Use
 
 ```elixir
 raw_xml = "..." # Feed in raw string form.

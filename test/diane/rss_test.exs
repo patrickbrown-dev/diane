@@ -32,7 +32,6 @@ defmodule Diane.RSSTest do
     assert channel.link == 'http://xkcd.com/'
   end
 
-
   test "it contains all items in channel" do
     item_count = parsed_source.channels
     |> List.first
@@ -72,6 +71,14 @@ defmodule Diane.RSSTest do
     |> Map.fetch!(:items)
     |> List.first
     assert item.title == 'Keyboard Mash'
+  end
+
+  test "it contains all item categories" do
+    item = parsed_source.channels
+    |> List.first
+    |> Map.fetch!(:items)
+    |> List.first
+    assert item.categories == ['foo', 'bar']
   end
 
   test "it contains the item description" do

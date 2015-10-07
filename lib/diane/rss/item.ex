@@ -4,7 +4,7 @@ defmodule Diane.RSS.Item do
             link: String,
             description: String,
             author: String,
-            # TODO: category
+            categories: [],
             comments: String,
             # TODO: enclosure
             guid: String,
@@ -17,6 +17,7 @@ defmodule Diane.RSS.Item do
       link:        xml |> xpath(~x"./link/text()"),
       description: xml |> xpath(~x"./description/text()"l) |> Enum.join,
       author:      xml |> xpath(~x"./author/text()"),
+      categories:  xml |> xpath(~x"./category/text()"l),
       comments:    xml |> xpath(~x"./comments/text()"),
       guid:        xml |> xpath(~x"./guid/text()"),
       pub_date:    xml |> xpath(~x"./pubDate/text()"),

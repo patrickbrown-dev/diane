@@ -46,6 +46,16 @@ defmodule Diane.RSSTest do
                                protocol: 'xml-rpc' }
   end
 
+  test "it contains image element with metadata" do
+    channel = parsed_source.channels |> List.first
+    assert channel.image == %{ url: 'foo',
+                               title: 'bar',
+                               link: 'baz',
+                               width: '50',
+                               height: '150',
+                               description: 'Cool image!' }
+  end
+
   test "it contains all items in channel" do
     item_count = parsed_source.channels
     |> List.first

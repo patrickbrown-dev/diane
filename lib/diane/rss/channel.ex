@@ -14,7 +14,7 @@ defmodule Diane.RSS.Channel do
             docs: String,
             cloud: %{},
             ttl: String,
-            # TODO: image
+            image: %{},
             # TODO: text_input
             skip_hours: String,
             skip_days: String,
@@ -36,6 +36,7 @@ defmodule Diane.RSS.Channel do
       docs:            xml |> xpath(~x"./docs/text()"),
       cloud:           xml |> xpath(~x"./cloud") |> parse_cloud,
       ttl:             xml |> xpath(~x"./ttl/text()"),
+      image:           xml |> xpath(~x"./image") |> parse_image,
       skip_hours:      xml |> xpath(~x"./skipHours/text()"),
       skip_days:       xml |> xpath(~x"./skipDays/text()"),
       items:           xml |> xpath(~x"./item"l) |> delegate_to_item
@@ -44,11 +45,22 @@ defmodule Diane.RSS.Channel do
 
   defp parse_cloud(xml) do
     %{
-      domain:              xml |> xpath(~x"./@domain"),
-      port:                xml |> xpath(~x"./@port"),
-      path:                xml |> xpath(~x"./@path"),
+      domain:             xml |> xpath(~x"./@domain"),
+      port:               xml |> xpath(~x"./@port"),
+      path:               xml |> xpath(~x"./@path"),
       register_procedure: xml |> xpath(~x"./@registerProcedure"),
-      protocol:            xml |> xpath(~x"./@protocol")
+      protocol:           xml |> xpath(~x"./@protocol")
+    }
+  end
+
+  defp parse_image(xml) do
+    %{
+      url:         xml |> xpath(~x"./url/text()"),
+      title:       xml |> xpath(~x"./title/text()"),
+      link:        xml |> xpath(~x"./link/text()"),
+      width:       xml |> xpath(~x"./width/text()"),
+      height:      xml |> xpath(~x"./height/text()"),
+      description: xml |> xpath(~x"./description/text()")
     }
   end
 

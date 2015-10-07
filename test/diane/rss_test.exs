@@ -121,6 +121,16 @@ defmodule Diane.RSSTest do
     assert item.description == "<img src=\"http://imgs.xkcd.com/comics/keyboard_mash.png\" title=\"WHY DON'T YOU COME HANG OUT INSIDE MY HOUSE. WE CAN COOK BREAD AND CHAT ABOUT OUR INTERNAL SKELETONS.\" alt=\"WHY DON'T YOU COME HANG OUT INSIDE MY HOUSE. WE CAN COOK BREAD AND CHAT ABOUT OUR INTERNAL SKELETONS.\" />"
   end
 
+  test "it contains item enclosures" do
+    item = parsed_source.channels
+    |> List.first
+    |> Map.fetch!(:items)
+    |> List.first
+    assert item.enclosure == %{ url: 'http://www.scripting.com/mp3s/weatherReportSuite.mp3',
+                                length: '12216320',
+                                type: 'audio/mpeg' }
+  end
+
   test "it raises an error when no channels are found" do
     atom_file = "test/fixtures/atom.xml" |> File.read!
     assert_raise RuntimeError, "Parse error, no channels found", fn ->

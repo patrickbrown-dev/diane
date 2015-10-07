@@ -6,7 +6,7 @@ defmodule Diane.RSS.Item do
             author: String,
             categories: [],
             comments: String,
-            # TODO: enclosure
+            enclosure: %{},
             guid: String,
             pub_date: String,
             source: String
@@ -19,9 +19,19 @@ defmodule Diane.RSS.Item do
       author:      xml |> xpath(~x"./author/text()"),
       categories:  xml |> xpath(~x"./category/text()"l),
       comments:    xml |> xpath(~x"./comments/text()"),
+      enclosure:   xml |> xpath(~x"./enclosure") |> parse_enclosure,
       guid:        xml |> xpath(~x"./guid/text()"),
       pub_date:    xml |> xpath(~x"./pubDate/text()"),
       source:      xml |> xpath(~x"./source/text()")
+    }
+  end
+
+  defp parse_enclosure(nil), do: %{}
+  defp parse_enclosure(xml) do
+    %{
+      url:    xml |> xpath(~x"./@url"),
+      length: xml |> xpath(~x"./@length"),
+      type:   xml |> xpath(~x"./@type")
     }
   end
 end

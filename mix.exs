@@ -7,6 +7,8 @@ defmodule Diane.Mixfile do
      elixir: "~> 1.0",
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
+     description: description,
+     package: package,
      deps: deps]
   end
 
@@ -15,7 +17,7 @@ defmodule Diane.Mixfile do
   end
 
   defp deps do
-    [{:sweet_xml, "~> 0.2.1"}]
+    [{:sweet_xml, "~> 0.4.0"}]
   end
 
   defp description do

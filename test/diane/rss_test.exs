@@ -56,6 +56,14 @@ defmodule Diane.RSSTest do
                                description: 'Cool image!' }
   end
 
+  test "it contains textInput element" do
+    channel = parsed_source.channels |> List.first
+    assert channel.text_input == %{ title: 'foo',
+                                    description: 'bar',
+                                    name: 'baz',
+                                    link: 'http://foo.bar/baz' }
+  end
+
   test "it contains all items in channel" do
     item_count = parsed_source.channels
     |> List.first

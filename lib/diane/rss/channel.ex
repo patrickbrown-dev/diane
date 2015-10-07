@@ -9,7 +9,7 @@ defmodule Diane.RSS.Channel do
             web_master: String,
             pub_date: String,
             last_build_date: String,
-            # TODO: category
+            categories: [],
             generator: String,
             docs: String,
             # TODO: cloud
@@ -31,6 +31,7 @@ defmodule Diane.RSS.Channel do
       web_master:      xml |> xpath(~x"./webMaster/text()"),
       pub_date:        xml |> xpath(~x"./pubDate/text()"),
       last_build_date: xml |> xpath(~x"./lastBuildDate/text()"),
+      categories:      xml |> xpath(~x"./category/text()"l),
       generator:       xml |> xpath(~x"./generator/text()"),
       docs:            xml |> xpath(~x"./docs/text()"),
       ttl:             xml |> xpath(~x"./ttl/text()"),

@@ -32,6 +32,11 @@ defmodule Diane.RSSTest do
     assert channel.link == 'http://xkcd.com/'
   end
 
+  test "it contains the channel-level categories" do
+    channel = parsed_source.channels |> List.first
+    assert channel.categories == ['fib', 'baz']
+  end
+
   test "it contains all items in channel" do
     item_count = parsed_source.channels
     |> List.first

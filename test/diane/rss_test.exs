@@ -37,6 +37,15 @@ defmodule Diane.RSSTest do
     assert channel.categories == ['fib', 'baz']
   end
 
+  test "it contains the cloud information" do
+    channel = parsed_source.channels |> List.first
+    assert channel.cloud == %{ domain: 'rpc.sys.com',
+                               port: '80',
+                               path: '/RPC2',
+                               register_procedure: 'myCloud.rssPleaseNotify',
+                               protocol: 'xml-rpc' }
+  end
+
   test "it contains all items in channel" do
     item_count = parsed_source.channels
     |> List.first

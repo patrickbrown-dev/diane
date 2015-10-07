@@ -12,7 +12,7 @@ defmodule Diane.RSS.Channel do
             categories: [],
             generator: String,
             docs: String,
-            # TODO: cloud
+            cloud: %{},
             ttl: String,
             # TODO: image
             # TODO: text_input
@@ -34,10 +34,21 @@ defmodule Diane.RSS.Channel do
       categories:      xml |> xpath(~x"./category/text()"l),
       generator:       xml |> xpath(~x"./generator/text()"),
       docs:            xml |> xpath(~x"./docs/text()"),
+      cloud:           xml |> xpath(~x"./cloud") |> parse_cloud,
       ttl:             xml |> xpath(~x"./ttl/text()"),
       skip_hours:      xml |> xpath(~x"./skipHours/text()"),
       skip_days:       xml |> xpath(~x"./skipDays/text()"),
       items:           xml |> xpath(~x"./item"l) |> delegate_to_item
+    }
+  end
+
+  defp parse_cloud(xml) do
+    %{
+      domain:              xml |> xpath(~x"./@domain"),
+      port:                xml |> xpath(~x"./@port"),
+      path:                xml |> xpath(~x"./@path"),
+      register_procedure: xml |> xpath(~x"./@registerProcedure"),
+      protocol:            xml |> xpath(~x"./@protocol")
     }
   end
 

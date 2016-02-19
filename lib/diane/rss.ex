@@ -1,6 +1,7 @@
 defmodule Diane.RSS do
   import SweetXml
-  defstruct channels: [%Diane.RSS.Channel{}]
+
+  defstruct [:channels]
 
   def parse(source) do
     try do
@@ -25,6 +26,6 @@ defmodule Diane.RSS do
   end
 
   defp delegate_to_channel(channels) do
-    channels |> Enum.map fn channel -> Diane.RSS.Channel.parse(channel) end
+    channels |> Enum.map(fn channel -> Diane.RSS.Channel.parse(channel) end)
   end
 end

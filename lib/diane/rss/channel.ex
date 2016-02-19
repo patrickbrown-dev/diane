@@ -1,24 +1,27 @@
 defmodule Diane.RSS.Channel do
   import SweetXml
-  defstruct title: String,
-            link: String,
-            description: String,
-            language: String,
-            copyright: String,
-            managing_editor: String,
-            web_master: String,
-            pub_date: String,
-            last_build_date: String,
-            categories: [],
-            generator: String,
-            docs: String,
-            cloud: %{},
-            ttl: String,
-            image: %{},
-            text_input: %{},
-            skip_hours: String,
-            skip_days: String,
-            items: [%Diane.RSS.Item{}]
+
+  defstruct [
+    :title,
+    :link,
+    :description,
+    :language,
+    :copyright,
+    :managing_editor,
+    :web_master,
+    :pub_date,
+    :last_build_date,
+    :categories,
+    :generator,
+    :docs,
+    :cloud,
+    :ttl,
+    :image,
+    :text_input,
+    :skip_hours,
+    :skip_days,
+    :items
+  ]
 
   def parse(xml) do
     %Diane.RSS.Channel {
@@ -78,6 +81,6 @@ defmodule Diane.RSS.Channel do
   end
 
   defp delegate_to_item(items) do
-    items |> Enum.map fn item -> Diane.RSS.Item.parse(item) end
+    items |> Enum.map(fn item -> Diane.RSS.Item.parse(item) end)
   end
 end

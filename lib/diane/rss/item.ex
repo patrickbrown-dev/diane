@@ -1,15 +1,18 @@
 defmodule Diane.RSS.Item do
   import SweetXml
-  defstruct title: String,
-            link: String,
-            description: String,
-            author: String,
-            categories: [],
-            comments: String,
-            enclosure: %{},
-            guid: String,
-            pub_date: String,
-            source: String
+
+  defstruct [
+    :title,
+    :link,
+    :description,
+    :author,
+    :categories,
+    :comments,
+    :enclosure,
+    :guid,
+    :pub_date,
+    :source
+  ]
 
   def parse(xml) do
     %Diane.RSS.Item {

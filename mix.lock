@@ -1,5 +1,1 @@
-%{"apex": {:hex, :apex, "0.3.3"},
-  "feeder": {:hex, :feeder, "1.4.6"},
-  "feeder_ex": {:hex, :feeder_ex, "0.0.2"},
-  "sweet_xml": {:hex, :sweet_xml, "0.4.0"},
-  "timex": {:hex, :timex, "0.13.4"}}
+%{"sweet_xml": {:hex, :sweet_xml, "0.6.1"}}

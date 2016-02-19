@@ -17,7 +17,7 @@ defmodule Diane.Mixfile do
   end
 
   defp deps do
-    [{:sweet_xml, "~> 0.4.0"}]
+    [{:sweet_xml, "~> 0.6.1"}]
   end
 
   defp description do
